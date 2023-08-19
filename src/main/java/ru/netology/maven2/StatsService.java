@@ -1,6 +1,7 @@
 package ru.netology.maven2;
 
 public class StatsService {
+
     public long sum(long[] sales) {
         long totalSale = 0;
         for (long sale : sales) {
@@ -10,7 +11,9 @@ public class StatsService {
     }
 
     public long average(long[] sales) {
-        return sum(sales) / sales.length;
+        long totalSale = sum(sales);
+        long averageSale = totalSale / 12;
+        return averageSale;
     }
 
     public long monthMax(long[] sales) {
@@ -35,6 +38,8 @@ public class StatsService {
 
     public int monthBellowAverage(long[] sales) {
         int counter = 0;
+        long averageSale = average(sales);
+
         for (long sale : sales) {
             if (sale < average(sales)) {
                 counter++;
@@ -45,6 +50,8 @@ public class StatsService {
 
     public int monthAboveAverage(long[] sales) {
         int counter = 0;
+        long averageSale = average(sales);
+        
         for (long sale : sales) {
             if (sale > average(sales)) {
                 counter++;
